@@ -1,0 +1,117 @@
+<!-- Map generated in R 3.2.2 by googleVis 0.5.9 package -->
+<!-- Mon Aug 17 23:09:53 2015 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataMapID1e2c118c191e () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ -33.8652,
+150.6404,
+"Aiman_Donor<BR>Age=30<BR>Total_giving=$50" 
+],
+[
+ -33.8879,
+151.1869,
+"Paul_Donor<BR>Age=21<BR>Total_giving=$780" 
+],
+[
+ -33.8879,
+151.187,
+"Yeng_Alum<BR>Age=21<BR>Total_giving=$300" 
+],
+[
+ -33.8879,
+151.1871,
+"Nikki_Student<BR>Age=21<BR>Total_giving=$50" 
+] 
+];
+data.addColumn('number','Latitude');
+data.addColumn('number','Longitude');
+data.addColumn('string','Tip');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartMapID1e2c118c191e() {
+var data = gvisDataMapID1e2c118c191e();
+var options = {};
+options["showTip"] = true;
+options["showLine"] = true;
+options["enableScrollWheel"] = true;
+options["mapType"] = "hybrid";
+options["useMapTypeControl"] = true;
+options["width"] =   1000;
+options["height"] =   1000;
+
+
+    var chart = new google.visualization.Map(
+    document.getElementById('MapID1e2c118c191e')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "map";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMapID1e2c118c191e);
+})();
+function displayChartMapID1e2c118c191e() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsFooter
+</script>
+
+
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMapID1e2c118c191e"></script>
+
+
+<!-- divChart -->
+  
+<div id="MapID1e2c118c191e" 
+  style="width: 1000; height: 1000;">
+</div>
